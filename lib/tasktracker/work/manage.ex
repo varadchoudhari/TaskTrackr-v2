@@ -17,5 +17,6 @@ defmodule Tasktracker.Work.Manage do
     manage
     |> cast(attrs, [:manager_id, :managee_id])
     |> validate_required([:manager_id, :managee_id])
+    |> unique_constraint(:managee_id)
   end
 end

@@ -9,8 +9,8 @@ defmodule Tasktracker.Accounts.User do
     field :name, :string
 
     has_many :manager_manages, Manage, foreign_key: :manager_id
-    has_many :managee_manages, Manage, foreign_key: :managee_id
-    has_many :managers, through: [:managee_manages, :manager]
+    has_one :managee_manages, Manage, foreign_key: :managee_id
+    has_one :managers, through: [:managee_manages, :manager]
     has_many :managees, through: [:manager_manages, :managee]
 
     timestamps()

@@ -7,6 +7,7 @@ defmodule Tasktracker.Accounts do
   alias Tasktracker.Repo
 
   alias Tasktracker.Accounts.User
+  alias Tasktracker.Work.Manage
 
   @doc """
   Returns the list of users.
@@ -20,6 +21,7 @@ defmodule Tasktracker.Accounts do
   def list_users do
     Repo.all(User)
   end
+
 
   @doc """
   Gets a single user.
