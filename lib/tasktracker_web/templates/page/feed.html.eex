@@ -2,6 +2,9 @@
 <div class="btn-group">
 <%= link "Created Tasks", to: page_path(@conn, :created), class: "btn btn-secondary" %>
 <%= link "Assigned Tasks", to: page_path(@conn, :your), class: "btn btn-secondary" %>
+<%= link "Manage", to: user_path(@conn, :index), class: "btn btn-secondary" %>
+<%= link "Profile", to: user_path(@conn, :profile), class: "btn btn-secondary" %>
+<%= link "Reports", to: page_path(@conn, :report), class: "btn btn-secondary" %>
 <%= link "Add Task", to: task_path(@conn, :new), class: "btn btn-primary"%>
 </div>
 <div class="p-3"></div>
@@ -36,7 +39,6 @@
       <div class="card-footer">
         <div class="row">
           <div class="col-md-9">
-            <p>Time taken <%= task.time_taken %> minutes</p>
           </div>
           <div class="col-md-3">
             <%= if task.user.id == @current_user.id || task.assigned.id == @current_user.id do %>

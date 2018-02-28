@@ -111,9 +111,10 @@ function start_time_click(ev) {
 }
 
 function insert_start_time(u_id, t_id) {
+  let date = "Date: "+new Date().getMonth()+"/"+new Date().getDay()+"/"+(parseInt(new Date().getYear())+1900).toString()+" Time: "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds();
   let text = JSON.stringify({
       timeblocks : {
-        start_time: new Date(),
+        start_time: date,
         end_time: "null",
         assigned_id: u_id,
         task_id: t_id
@@ -124,14 +125,15 @@ function insert_start_time(u_id, t_id) {
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
     data: text,
-    success: (resp) => { console.log("inserted into database") },
+    success: (resp) => { location.reload() },
   });
 }
 
 function insert_end_time(id, u_id, t_id) {
+  let date = "Date: "+new Date().getMonth()+"/"+new Date().getDay()+"/"+(parseInt(new Date().getYear())+1900).toString()+" Time: "+new Date().getHours()+":"+new Date().getMinutes()+":"+new Date().getSeconds();
   let text = JSON.stringify({
       timeblocks : {
-        end_time: new Date(),
+        end_time: date,
       }
   });
   $.ajax(time_path+"/"+id,{
@@ -139,7 +141,7 @@ function insert_end_time(id, u_id, t_id) {
     dataType: "json",
     contentType: "application/json; charset=UTF-8",
     data: text,
-    success: (resp) => { console.log("inserted into database") },
+    success: (resp) => { location.reload() },
   });
 }
 
