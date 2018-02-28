@@ -5,6 +5,16 @@ defmodule TasktrackerWeb.TaskController do
   alias Tasktracker.Work.Task
   alias Tasktracker.Accounts
 
+  def timeblocks(conn, task) do
+    timeblocks = Work.get_timeblocks(task, conn.assigns.current_user.id)
+    if length(timeblocks) > 0 do
+      id = Enum.at(timeblocks, 0).id
+    else
+      id = nil
+    end
+    render(conn, "timeblocks.html", taskid: task, timeblocks: timeblocks, id: id)
+  end
+
   def index(conn, _params) do
     tasks = Work.list_tasks()
     render(conn, "index.html", tasks: tasks)

@@ -23,6 +23,7 @@ defmodule TasktrackerWeb.Router do
     get "/created", PageController, :created
     get "/report", PageController, :report
     get "/profile", UserController, :profile
+    get "/timeblocks", TaskController, :timeblocks
     resources "/users", UserController
     resources "/tasks", TaskController
 
@@ -34,5 +35,6 @@ defmodule TasktrackerWeb.Router do
   scope "/api/v1", TasktrackerWeb do
     pipe_through :api
     resources "/manages", ManageController, except: [:new, :edit]
+    resources "/timeblocks", TimeController, except: [:new, :edit]
   end
 end

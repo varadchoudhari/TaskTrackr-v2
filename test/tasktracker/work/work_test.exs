@@ -124,4 +124,66 @@ defmodule Tasktracker.WorkTest do
       assert %Ecto.Changeset{} = Work.change_manage(manage)
     end
   end
+
+  describe "timeblocks" do
+    alias Tasktracker.Work.Time
+
+    @valid_attrs %{end_time: "some end_time", start_time: "some start_time"}
+    @update_attrs %{end_time: "some updated end_time", start_time: "some updated start_time"}
+    @invalid_attrs %{end_time: nil, start_time: nil}
+
+    def time_fixture(attrs \\ %{}) do
+      {:ok, time} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Work.create_time()
+
+      time
+    end
+
+    test "list_timeblocks/0 returns all timeblocks" do
+      time = time_fixture()
+      assert Work.list_timeblocks() == [time]
+    end
+
+    test "get_time!/1 returns the time with given id" do
+      time = time_fixture()
+      assert Work.get_time!(time.id) == time
+    end
+
+    test "create_time/1 with valid data creates a time" do
+      assert {:ok, %Time{} = time} = Work.create_time(@valid_attrs)
+      assert time.end_time == "some end_time"
+      assert time.start_time == "some start_time"
+    end
+
+    test "create_time/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Work.create_time(@invalid_attrs)
+    end
+
+    test "update_time/2 with valid data updates the time" do
+      time = time_fixture()
+      assert {:ok, time} = Work.update_time(time, @update_attrs)
+      assert %Time{} = time
+      assert time.end_time == "some updated end_time"
+      assert time.start_time == "some updated start_time"
+    end
+
+    test "update_time/2 with invalid data returns error changeset" do
+      time = time_fixture()
+      assert {:error, %Ecto.Changeset{}} = Work.update_time(time, @invalid_attrs)
+      assert time == Work.get_time!(time.id)
+    end
+
+    test "delete_time/1 deletes the time" do
+      time = time_fixture()
+      assert {:ok, %Time{}} = Work.delete_time(time)
+      assert_raise Ecto.NoResultsError, fn -> Work.get_time!(time.id) end
+    end
+
+    test "change_time/1 returns a time changeset" do
+      time = time_fixture()
+      assert %Ecto.Changeset{} = Work.change_time(time)
+    end
+  end
 end

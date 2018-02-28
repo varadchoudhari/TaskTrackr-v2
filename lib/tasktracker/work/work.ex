@@ -244,4 +244,106 @@ defmodule Tasktracker.Work do
   def change_manage(%Manage{} = manage) do
     Manage.changeset(manage, %{})
   end
+
+  alias Tasktracker.Work.Time
+
+  @doc """
+  Returns the list of timeblocks.
+
+  ## Examples
+
+      iex> list_timeblocks()
+      [%Time{}, ...]
+
+  """
+  def list_timeblocks do
+    Repo.all(Time)
+  end
+
+  def get_timeblocks(task_id, user_id) do
+    Repo.all(from t in Time,
+    where: t.task_id == ^task_id["taskid"] and t.assigned_id == ^user_id and t.end_time == "null",
+    select: t)
+  end
+
+  @doc """
+  Gets a single time.
+
+  Raises `Ecto.NoResultsError` if the Time does not exist.
+
+  ## Examples
+
+      iex> get_time!(123)
+      %Time{}
+
+      iex> get_time!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_time!(id), do: Repo.get!(Time, id)
+
+  @doc """
+  Creates a time.
+
+  ## Examples
+
+      iex> create_time(%{field: value})
+      {:ok, %Time{}}
+
+      iex> create_time(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_time(attrs \\ %{}) do
+    %Time{}
+    |> Time.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a time.
+
+  ## Examples
+
+      iex> update_time(time, %{field: new_value})
+      {:ok, %Time{}}
+
+      iex> update_time(time, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_time(%Time{} = time, attrs) do
+    time
+    |> Time.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Time.
+
+  ## Examples
+
+      iex> delete_time(time)
+      {:ok, %Time{}}
+
+      iex> delete_time(time)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_time(%Time{} = time) do
+    Repo.delete(time)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking time changes.
+
+  ## Examples
+
+      iex> change_time(time)
+      %Ecto.Changeset{source: %Time{}}
+
+  """
+  def change_time(%Time{} = time) do
+    Time.changeset(time, %{})
+  end
 end

@@ -1,0 +1,13 @@
+<script>
+  window.time_path = "<%= time_path(@conn, :index) %>";
+  window.current_user_id = <%= @current_user.id %>;
+</script>
+
+<h1> TIME BLOCKS </h1>
+<button class="start-time-button btn btn-secondary"
+        data-user-id="<%= @current_user.id %>"
+        data-task-id="<%= @taskid["taskid"] %>"
+        data-timeblocks-id="<%= @id %>"
+        data-timeblocks-length="<%= length(@timeblocks) %>"
+>Start Working
+</button>

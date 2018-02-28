@@ -42,6 +42,7 @@
             <%= if task.user.id == @current_user.id || task.assigned.id == @current_user.id do %>
             <div class="float-right">
               <div class="btn-group">
+                <%= link "Timeblocks", to: task_path(@conn, :timeblocks, taskid: task), class: "btn-sm btn-primary" %>
                 <%= link "Edit", to: task_path(@conn, :edit, task), class: "btn-sm btn-secondary" %>
                 <%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn-sm btn-danger" %>
               </div>
