@@ -27,6 +27,28 @@ defmodule TasktrackerWeb.TaskController do
     render(conn, "edittime.html", time: time, changeset: changeset)
   end
 
+  def time(conn, params) do
+    time = params["time"]
+    id = String.to_integer(time["id"])
+    start = time["start_time"]
+    endt = time["end_time"]
+    a = %{"id" => id, "start_time" => start, "end_time" => endt}
+    new_time = Work.get_time!(id)
+    case Work.update_time(new_time, a) do
+      {:ok, new_time} ->
+        conn
+        |> put_flash(:info, "Time updated successfully.")
+        |> redirect(to: page_path(conn, :feed))
+        {:error, %Ecto.Changeset{} = changeset} ->
+          render(conn, "edittime.html", time: time, changeset: changeset)
+        end
+  end
+
+  def deletetime(conn, params, data) do
+    IO.inspect params, label: "delete?"
+  end
+
+
   def new(conn, _params) do
     changeset = Work.change_task(%Task{})
     # old users
