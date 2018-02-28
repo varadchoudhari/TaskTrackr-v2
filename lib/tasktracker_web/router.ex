@@ -24,6 +24,7 @@ defmodule TasktrackerWeb.Router do
     get "/report", PageController, :report
     get "/profile", UserController, :profile
     get "/timeblocks", TaskController, :timeblocks
+    get "/edittime", TaskController, :edittime
     resources "/users", UserController
     resources "/tasks", TaskController
 

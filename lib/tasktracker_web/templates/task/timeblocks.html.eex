@@ -11,3 +11,12 @@
         data-timeblocks-length="<%= length(@timeblocks) %>"
 >Start Working
 </button>
+<div class="p-3"></div>
+<%= Enum.map @allblocks, fn block -> %>
+<div class="card">
+  <p>Start Time: <%=block.start_time%><p>
+  <p>End Time: <%=block.end_time%><p>
+  <%= link "Edit", to: task_path(@conn, :edittime, block: block), class: "btn-sm btn-secondary" %>
+  </div>
+  <div class="p-3"></div>
+<% end %>

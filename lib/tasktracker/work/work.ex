@@ -266,6 +266,12 @@ defmodule Tasktracker.Work do
     select: t)
   end
 
+  def get_allblocks(task_id, user_id) do
+    Repo.all(from t in Time,
+    where: t.task_id == ^task_id["taskid"] and t.assigned_id == ^user_id,
+    select: t)
+  end
+
   @doc """
   Gets a single time.
 

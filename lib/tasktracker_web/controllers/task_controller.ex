@@ -7,17 +7,24 @@ defmodule TasktrackerWeb.TaskController do
 
   def timeblocks(conn, task) do
     timeblocks = Work.get_timeblocks(task, conn.assigns.current_user.id)
+    all_blocks = Work.get_allblocks(task, conn.assigns.current_user.id)
     if length(timeblocks) > 0 do
       id = Enum.at(timeblocks, 0).id
     else
       id = nil
     end
-    render(conn, "timeblocks.html", taskid: task, timeblocks: timeblocks, id: id)
+    render(conn, "timeblocks.html", taskid: task, timeblocks: timeblocks, id: id, allblocks: all_blocks)
   end
 
   def index(conn, _params) do
     tasks = Work.list_tasks()
     render(conn, "index.html", tasks: tasks)
+  end
+
+  def edittime(conn, block) do
+    time = Work.get_time!(block["block"])
+    changeset = Work.change_time(time)
+    render(conn, "edittime.html", time: time, changeset: changeset)
   end
 
   def new(conn, _params) do
