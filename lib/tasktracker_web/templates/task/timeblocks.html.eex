@@ -1,14 +1,14 @@
 <script>
-  window.time_path = "<%= time_path(@conn, :index) %>";
-  window.current_user_id = <%= @current_user.id %>;
+window.time_path = "<%= time_path(@conn, :index) %>";
+window.current_user_id = <%= @current_user.id %>;
 </script>
 
 <h1> TIME BLOCKS </h1>
 <button class="start-time-button btn btn-secondary"
-        data-user-id="<%= @current_user.id %>"
-        data-task-id="<%= @taskid["taskid"] %>"
-        data-timeblocks-id="<%= @id %>"
-        data-timeblocks-length="<%= length(@timeblocks) %>"
+data-user-id="<%= @current_user.id %>"
+data-task-id="<%= @taskid["taskid"] %>"
+data-timeblocks-id="<%= @id %>"
+data-timeblocks-length="<%= length(@timeblocks) %>"
 >Start Working
 </button>
 <%= link "Back", to: page_path(@conn, :feed), class: "btn btn-secondary" %>
@@ -16,12 +16,12 @@
 <%= Enum.map @allblocks, fn block -> %>
 <div class="card">
   <div class="card-header">
-  <p>Start Time: <%=block.start_time%><p>
-  </div>
-  <div class="card-footer">
-  <p>End Time: <%=block.end_time%><p>
-  <%= link "Edit", to: task_path(@conn, :edittime, block: block), class: "btn-sm btn-secondary" %>
-  </div>
-</div>
-  <div class="p-3"></div>
-<% end %>
+    <p>Start Time: <%=block.start_time%><p>
+    </div>
+    <div class="card-footer">
+      <p>End Time: <%=block.end_time%><p>
+        <%= link "Edit", to: task_path(@conn, :edittime, block: block), class: "btn-sm btn-secondary" %>
+      </div>
+    </div>
+    <div class="p-3"></div>
+    <% end %>

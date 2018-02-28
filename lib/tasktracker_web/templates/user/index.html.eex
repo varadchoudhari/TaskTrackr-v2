@@ -1,30 +1,30 @@
 <h2>Listing Users</h2>
 
 <script>
-  window.manage_path = "<%= manage_path(@conn, :index) %>";
-  window.current_user_id = <%= @current_user.id %>;
+window.manage_path = "<%= manage_path(@conn, :index) %>";
+window.current_user_id = <%= @current_user.id %>;
 </script>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-
+      
       <th></th>
     </tr>
   </thead>
   <tbody>
-  <%= for user <- @users do %>
-  <tr>
-    <td><%= user.name %></td>
-    <td>
-      <button class="manage-button btn btn-secondary"
-              data-user-id="<%= user.id %>"
-              data-manage="<%= @manages[user.id] %>"
-      >Manage
-    </button>
+    <%= for user <- @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td>
+        <button class="manage-button btn btn-secondary"
+        data-user-id="<%= user.id %>"
+        data-manage="<%= @manages[user.id] %>"
+        >Manage
+      </button>
     </td>
-    </tr>
+  </tr>
   <% end %>
 </tbody>
 </table>

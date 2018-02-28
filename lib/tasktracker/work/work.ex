@@ -13,8 +13,8 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> list_tasks()
-      [%Task{}, ...]
+  iex> list_tasks()
+  [%Task{}, ...]
 
   """
   def list_tasks do
@@ -31,11 +31,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> get_task!(123)
-      %Task{}
+  iex> get_task!(123)
+  %Task{}
 
-      iex> get_task!(456)
-      ** (Ecto.NoResultsError)
+  iex> get_task!(456)
+  ** (Ecto.NoResultsError)
 
   """
   def get_task!(id) do
@@ -56,11 +56,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> create_task(%{field: value})
-      {:ok, %Task{}}
+  iex> create_task(%{field: value})
+  {:ok, %Task{}}
 
-      iex> create_task(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> create_task(%{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def create_task(attrs \\ %{}) do
@@ -74,11 +74,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> update_task(task, %{field: new_value})
-      {:ok, %Task{}}
+  iex> update_task(task, %{field: new_value})
+  {:ok, %Task{}}
 
-      iex> update_task(task, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> update_task(task, %{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def update_task(%Task{} = task, attrs) do
@@ -92,11 +92,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> delete_task(task)
-      {:ok, %Task{}}
+  iex> delete_task(task)
+  {:ok, %Task{}}
 
-      iex> delete_task(task)
-      {:error, %Ecto.Changeset{}}
+  iex> delete_task(task)
+  {:error, %Ecto.Changeset{}}
 
   """
   def delete_task(%Task{} = task) do
@@ -108,8 +108,8 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> change_task(task)
-      %Ecto.Changeset{source: %Task{}}
+  iex> change_task(task)
+  %Ecto.Changeset{source: %Task{}}
 
   """
   def change_task(%Task{} = task) do
@@ -124,8 +124,8 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> list_manages()
-      [%Manage{}, ...]
+  iex> list_manages()
+  [%Manage{}, ...]
 
   """
   def list_manages do
@@ -171,11 +171,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> get_manage!(123)
-      %Manage{}
+  iex> get_manage!(123)
+  %Manage{}
 
-      iex> get_manage!(456)
-      ** (Ecto.NoResultsError)
+  iex> get_manage!(456)
+  ** (Ecto.NoResultsError)
 
   """
   def get_manage!(id), do: Repo.get!(Manage, id)
@@ -185,11 +185,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> create_manage(%{field: value})
-      {:ok, %Manage{}}
+  iex> create_manage(%{field: value})
+  {:ok, %Manage{}}
 
-      iex> create_manage(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> create_manage(%{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def create_manage(attrs \\ %{}) do
@@ -203,11 +203,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> update_manage(manage, %{field: new_value})
-      {:ok, %Manage{}}
+  iex> update_manage(manage, %{field: new_value})
+  {:ok, %Manage{}}
 
-      iex> update_manage(manage, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> update_manage(manage, %{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def update_manage(%Manage{} = manage, attrs) do
@@ -221,11 +221,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> delete_manage(manage)
-      {:ok, %Manage{}}
+  iex> delete_manage(manage)
+  {:ok, %Manage{}}
 
-      iex> delete_manage(manage)
-      {:error, %Ecto.Changeset{}}
+  iex> delete_manage(manage)
+  {:error, %Ecto.Changeset{}}
 
   """
   def delete_manage(%Manage{} = manage) do
@@ -237,8 +237,8 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> change_manage(manage)
-      %Ecto.Changeset{source: %Manage{}}
+  iex> change_manage(manage)
+  %Ecto.Changeset{source: %Manage{}}
 
   """
   def change_manage(%Manage{} = manage) do
@@ -252,8 +252,8 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> list_timeblocks()
-      [%Time{}, ...]
+  iex> list_timeblocks()
+  [%Time{}, ...]
 
   """
   def list_timeblocks do
@@ -279,11 +279,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> get_time!(123)
-      %Time{}
+  iex> get_time!(123)
+  %Time{}
 
-      iex> get_time!(456)
-      ** (Ecto.NoResultsError)
+  iex> get_time!(456)
+  ** (Ecto.NoResultsError)
 
   """
   def get_time!(id), do: Repo.get!(Time, id)
@@ -293,11 +293,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> create_time(%{field: value})
-      {:ok, %Time{}}
+  iex> create_time(%{field: value})
+  {:ok, %Time{}}
 
-      iex> create_time(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> create_time(%{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def create_time(attrs \\ %{}) do
@@ -311,11 +311,11 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> update_time(time, %{field: new_value})
-      {:ok, %Time{}}
+  iex> update_time(time, %{field: new_value})
+  {:ok, %Time{}}
 
-      iex> update_time(time, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> update_time(time, %{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def update_time(%Time{} = time, attrs) do
@@ -328,12 +328,12 @@ defmodule Tasktracker.Work do
   Deletes a Time.
 
   ## Examples
+  
+  iex> delete_time(time)
+  {:ok, %Time{}}
 
-      iex> delete_time(time)
-      {:ok, %Time{}}
-
-      iex> delete_time(time)
-      {:error, %Ecto.Changeset{}}
+  iex> delete_time(time)
+  {:error, %Ecto.Changeset{}}
 
   """
   def delete_time(%Time{} = time) do
@@ -345,8 +345,8 @@ defmodule Tasktracker.Work do
 
   ## Examples
 
-      iex> change_time(time)
-      %Ecto.Changeset{source: %Time{}}
+  iex> change_time(time)
+  %Ecto.Changeset{source: %Time{}}
 
   """
   def change_time(%Time{} = time) do

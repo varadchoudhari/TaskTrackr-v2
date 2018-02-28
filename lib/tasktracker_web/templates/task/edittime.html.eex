@@ -1,9 +1,9 @@
 <%= form_for @changeset, task_path(@conn, :time), fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
+<%= if @changeset.action do %>
+<div class="alert alert-danger">
+  <p>Oops, something went wrong! Please check the errors below.</p>
+</div>
+<% end %>
 
 <div class="invisible">
   <div class="form-group">
@@ -13,19 +13,19 @@
   </div>
 </div>
 
-  <div class="form-group">
-    <%= label f, :start_time, class: "control-label" %>
-    <%= text_input f, :start_time, class: "form-control" %>
-    <%= error_tag f, :start_time %>
-  </div>
-  <div class="form-group">
-    <%= label f, :end_time, class: "control-label" %>
-    <%= text_input f, :end_time, class: "form-control" %>
-    <%= error_tag f, :end_time %>
-  </div>
+<div class="form-group">
+  <%= label f, :start_time, class: "control-label" %>
+  <%= text_input f, :start_time, class: "form-control" %>
+  <%= error_tag f, :start_time %>
+</div>
+<div class="form-group">
+  <%= label f, :end_time, class: "control-label" %>
+  <%= text_input f, :end_time, class: "form-control" %>
+  <%= error_tag f, :end_time %>
+</div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
+<div class="form-group">
+  <%= submit "Submit", class: "btn btn-primary" %>
+</div>
 <% end %>
 <%= link "Back", to: page_path(@conn, :feed), class: "btn-sm btn-secondary" %>
